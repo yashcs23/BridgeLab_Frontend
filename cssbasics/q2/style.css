@@ -1,0 +1,39 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Segoe UI,Arial;background:#f4f6f8;color:#14213d}
+.wrap{max-width:1000px;margin:0 auto;padding:2rem}
+
+/* layout sections */
+header{background:#0b3b5c;color:#fff;padding:1rem 0}
+header h1{font-size:2rem}
+header nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:1rem}
+
+/* each panel full width with its own background */
+.panel{min-height:60vh;display:flex;align-items:center;border-bottom:6px solid #fff;}
+
+/* image background with parallax-like effect (background-attachment: fixed) */
+.panel-image{
+	background:url('https://via.placeholder.com/1200x800') center/cover no-repeat;
+	background-attachment:fixed; /* parallax-like */
+}
+.fixed-bg{
+	background:url('https://via.placeholder.com/1200x700/89c2d9') center/cover no-repeat;
+	background-attachment:fixed; /* second parallax */
+}
+
+/* linear gradient */
+.gradient-linear{
+	background:linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%);
+	color:#2b2b2b;
+}
+
+/* radial gradient */
+.gradient-radial{
+	background:radial-gradient(circle at 10% 20%, #d6e9ff, #8fbfe0 60%, #315c7b);
+	color:white;
+}
+
+/* spacing and borders */
+.panel .wrap{padding:3rem; border:1px solid rgba(0,0,0,0.05); background:rgba(255,255,255,0.6); border-radius:8px}
+h2{font-weight:700;font-size:2rem;margin-bottom:0.5rem}
+p{margin:0.5rem 0;font-size:1rem}
+footer{padding:1rem 0;text-align:center;background:#0b3b5c;color:#fff;margin-top:0}

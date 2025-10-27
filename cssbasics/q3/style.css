@@ -1,0 +1,15 @@
+/* Grid/flex layout with responsive breakpoint */
+body{font-family:Arial, Helvetica;background:#f7fafc;color:#111;margin:2rem}
+.team-wrap{max-width:1000px;margin:0 auto}
+.team{display:flex;gap:1.5rem;align-items:stretch}
+/* Card box-model: uniform padding and margins */
+.card{flex:1;padding:1.25rem;margin:0;border:1px solid #e2e8f0;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.08);background:white}
+/* Highlight lead with different bg and border */
+.card.lead{background:#fffbeb;border:2px dashed #f59e0b;box-shadow:0 8px 22px rgba(245,158,11,0.08)}
+h1{margin-bottom:1rem}
+h2{margin:0 0 0.5rem 0;font-size:1.25rem}
+.role{color:#6b7280;margin-bottom:0.75rem}
+/* Responsive: single column under 600px */
+@media (max-width:600px){
+	.team{flex-direction:column}
+}

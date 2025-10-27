@@ -1,0 +1,25 @@
+/* Flex container for equal-height columns */
+body{font-family:Arial;background:#f3f4f6;color:#111;padding:2rem}
+.pricing{max-width:1000px;margin:0 auto}
+.plans{display:flex;gap:1rem;align-items:stretch}
+
+/* plan card */
+.plan{flex:1;padding:1.5rem;border:2px solid #e5e7eb;border-radius:10px;background:white;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s ease, background .25s ease;box-shadow:0 8px 20px rgba(2,6,23,0.05)}
+.plan h2{margin:0 0 0.5rem 0}
+.plan ul{list-style:none;padding-left:0;margin:0 0 1rem 0}
+.plan .price{font-size:1.75rem;font-weight:700;margin:1rem 0}
+
+/* popular plan highlight with different border style */
+.plan.popular{border-color:#ef4444;background:linear-gradient(180deg,#fff7f7,#fff)}
+.plan.popular::after{content:"Most Popular";display:inline-block;margin-top:0.5rem;color:#b91c1c;font-weight:700}
+
+/* hover effect: enlarge and change background slightly */
+.plan:hover{transform:scale(1.03);background:#fbfdff}
+
+/* button styled link */
+.btn{text-decoration:none;background:#0b69ff;color:#fff;padding:0.6rem 0.9rem;border-radius:6px;text-align:center;display:inline-block}
+
+/* responsive stack */
+@media (max-width:800px){
+	.plans{flex-direction:column}
+}
