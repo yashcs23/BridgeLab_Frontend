@@ -1,0 +1,13 @@
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{display:flex;align-items:center;justify-content:center;min-height:100vh;background:#fafafa;padding:24px}
+.pricing{display:flex;gap:20px;align-items:flex-start;animation:fadeIn 0.8s ease forwards;opacity:0}
+.plan{background:#fff;padding:28px 24px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);width:240px;text-align:center;transition:transform .3s}
+.plan .price{display:block;font-size:1.6rem;margin-top:8px;font-weight:700}
+.plan:hover{transform:translateY(-10px)}
+.featured{transform:scale(1.07);background:#1e90ff;color:#fff}
+
+/* simple fade-in */
+@keyframes fadeIn{to{opacity:1}}
+
+/* stack under 750px */
+@media (max-width:750px){ .pricing{flex-direction:column;align-items:center} .plan{width:90%} .featured{transform:none} }
