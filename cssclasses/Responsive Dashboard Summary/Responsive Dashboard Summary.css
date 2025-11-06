@@ -1,0 +1,18 @@
+/* Responsive Dashboard Summary.css */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui;padding:1rem}
+.dashboard{display:grid;grid-template-columns:240px 1fr;grid-template-rows:auto 1fr;gap:1rem}
+.dash-header{grid-column:1/-1;padding:1rem;border:1px solid rgba(0,0,0,.08);border-radius:6px}
+.sidebar{padding:1rem;border:1px solid rgba(0,0,0,.06);border-radius:6px}
+.main{padding:1rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
+.card{padding:1rem;border-radius:8px;border:1px solid rgba(0,0,0,.08);transition:transform .2s ease;cursor:default}
+.card:hover{transform:scale(1.03);box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+@keyframes load{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cards{animation:load .6s both}
+
+/* Below 750px: sidebar shifts to top */
+@media (max-width:750px){
+  .dashboard{grid-template-columns:1fr;grid-template-rows:auto auto 1fr}
+  .sidebar{order:-1}
+}

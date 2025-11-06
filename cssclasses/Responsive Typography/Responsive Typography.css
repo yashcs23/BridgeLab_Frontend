@@ -1,0 +1,10 @@
+/* Responsive Typography.css */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui;padding:2rem;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.typo{max-width:800px;text-align:center}
+h1{font-size:clamp(1.5rem,4vw,3rem);margin-bottom:1rem}
+p{font-size:clamp(1rem,2vw,1.5rem);line-height:1.6}
+@media (max-width:700px){
+  p{line-height:1.4;padding:0 1rem}
+  .typo{padding:1rem}
+}

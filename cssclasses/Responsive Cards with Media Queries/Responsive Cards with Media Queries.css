@@ -1,0 +1,19 @@
+/* Responsive Cards with Media Queries.css */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui;padding:1rem}
+.cards-wrapper{display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between}
+.card{flex:1 1 calc(25% - 1rem);min-width:200px;padding:1.25rem;border-radius:8px;border:1px solid rgba(0,0,0,.08);transition:background-color .25s ease}
+/* Desktop: 4 columns handled by calc above */
+
+/* Tablet: 2 columns */
+@media (max-width:900px){
+  .card{flex:1 1 calc(50% - 1rem)}
+}
+
+/* Mobile: 1 column */
+@media (max-width:600px){
+  .card{flex:1 1 100%}
+}
+
+/* Hover background change */
+.card:hover{background-color:rgba(0,0,0,0.06)}

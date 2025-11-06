@@ -1,0 +1,16 @@
+/* Responsive Web Design Layout.css */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,Segoe UI,Roboto,Arial;padding:1rem;display:flex;flex-direction:column;min-height:100vh}
+.site-header{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+.logo{font-weight:700;font-size:1.2rem}
+.nav a{margin-left:1rem;text-decoration:none}
+.features{display:flex;gap:1rem;flex:1;align-items:stretch;margin:1rem 0}
+.feature{flex:1;padding:1.5rem;border-radius:8px;border:1px solid rgba(0,0,0,.08);text-align:center;transition:transform .25s ease;cursor:default}
+/* Hover scale */
+.feature:hover{transform:scale(1.03)}
+.site-footer{text-align:center;padding:1rem 0;margin-top:auto}
+
+/* Stack below 750px */
+@media (max-width:750px){
+  .features{flex-direction:column}
+}
