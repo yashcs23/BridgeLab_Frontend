@@ -1,0 +1,76 @@
+/* Basic Reset and Typography */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+header, footer {
+  text-align: center;
+  padding: 1em 0;
+  background: #222;
+  color: #fff;
+}
+main {
+  padding: 2em 0;
+}
+
+/* Flex container for demo boxes */
+.box-demo-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Demo box base styles */
+.demo-box {
+  background: #fff;
+  min-width: 140px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  margin: 0.5em 0;
+  font-size: 1.1em;
+  border: 3px solid #888;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Border styles */
+.solid { border-style: solid; }
+.dashed { border-style: dashed; }
+.double { border-style: double; }
+.groove { border-style: groove; }
+
+/* Rounded corners */
+.rounded {
+  border-radius: 18px;
+  border-color: #4a90e2;
+}
+
+/* Extra padding */
+.padded {
+  padding: 2em 3em;
+  border-color: #e67e22;
+}
+
+/* Hover effect with smooth transition */
+.demo-box:hover {
+  border-color: #e74c3c;
+  box-shadow: 0 2px 12px rgba(231, 76, 60, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .box-demo-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

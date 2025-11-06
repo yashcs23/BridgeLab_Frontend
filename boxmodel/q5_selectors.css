@@ -1,0 +1,22 @@
+/* Attribute selector: input[type="text"] */
+input[type="text"] { border: 2px solid #4caf50; padding: 0.5em; }
+/* Attribute selector: links starting with https */
+a[href^="https"] { color: #1976d2; font-weight: bold; }
+/* Pseudo-class: hover */
+a:hover { text-decoration: underline; }
+/* Pseudo-class: focus */
+input:focus { border-color: #e91e63; outline: none; }
+/* Pseudo-class: nth-child */
+.selector-list li:nth-child(odd) { background: #f1f8e9; }
+/* Pseudo-element: before */
+.selector-list li::before { content: "• "; color: #888; }
+/* Pseudo-element: after */
+.selector-list li::after { content: " "; }
+/* Combinator: direct child */
+.selector-list > li { margin: 0.5em 0; }
+/* Combinator: adjacent sibling */
+.selector-list li + li { border-top: 1px dashed #ccc; }
+/* Combinator: general sibling */
+.selector-list li ~ li { font-style: italic; }
+/* Descendant selector */
+.selector-list span { color: #388e3c; }

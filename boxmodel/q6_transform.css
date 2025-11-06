@@ -1,0 +1,10 @@
+body { margin: 0; font-family: Arial, sans-serif; }
+header, footer { text-align: center; padding: 1em 0; background: #333; color: #fff; }
+.transform-row { display: flex; justify-content: center; gap: 2em; margin: 2em 0 1em 0; }
+.transform-box { width: 80px; height: 80px; background: #b2dfdb; border-radius: 10px; transition: all 0.4s ease; }
+.rotate:hover { transform: rotate(25deg); background: #80cbc4; }
+.scale:hover { transform: scale(1.3); background: #ffab91; }
+.translate:hover { transform: translateY(-20px); background: #ffd54f; }
+.skew:hover { transform: skew(20deg, 10deg); background: #ce93d8; }
+.transform-labels { display: flex; justify-content: center; gap: 6em; font-size: 1.1em; }
+@media (max-width: 700px) { .transform-row, .transform-labels { flex-direction: column; align-items: center; gap: 1em; } }

@@ -1,0 +1,8 @@
+body { margin: 0; font-family: Arial, sans-serif; }
+header, footer { text-align: center; padding: 1em 0; background: #222; color: #fff; position: fixed; width: 100%; left: 0; }
+header { top: 0; }
+footer { bottom: 0; }
+main { padding: 5em 0 3em 0; }
+.linear-gradient-section { min-height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%); }
+.radial-gradient-section { min-height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle, #a1c4fd 0%, #c2e9fb 100%); background-attachment: fixed; }
+h2 { margin-top: 0; }

@@ -1,0 +1,8 @@
+body { margin: 0; font-family: Arial, sans-serif; background: #f9f9f9; }
+header, footer { text-align: center; padding: 1em 0; background: #333; color: #fff; }
+.hw-container { display: flex; justify-content: center; align-items: center; height: 70vh; gap: 2em; }
+.hw-box { display: flex; align-items: center; justify-content: center; text-align: center; font-size: 1.1em; border: 2px solid #555; border-radius: 10px; padding: 1em; box-sizing: border-box; }
+.box1 { width: 180px; min-height: 120px; background: #b3e5fc; }
+.box2 { width: 25%; max-width: 220px; height: 90px; background: #ffe082; }
+.box3 { width: 12em; height: 30vh; min-height: 60px; background: #c8e6c9; overflow: auto; }
+@media (max-width: 700px) { .hw-container { flex-direction: column; height: auto; } }
