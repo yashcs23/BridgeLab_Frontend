@@ -1,0 +1,11 @@
+/* Responsive Design Principles Summary.css */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui;padding:1rem}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pbox{padding:1rem;border-radius:8px;border:1px solid rgba(0,0,0,.08);transition:background 0.25s}
+.pbox:hover{background:linear-gradient(135deg,rgba(0,0,0,0.05),transparent);color:#000}
+
+/* Single column below 600px */
+@media (max-width:600px){
+  .principles{grid-template-columns:1fr}
+}
