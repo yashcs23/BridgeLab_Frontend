@@ -1,56 +1,75 @@
-<h1 align="center">🎨 Frontend-Dev</h1>
+<h1 align="center" style="font-size: 2.8em; color:#00ffe0; animation: glow 2s ease-in-out infinite alternate;">✨ Frontend-Dev ✨</h1>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/HTML-orange?style=for-the-badge&logo=html5" />
-  <img src="https://img.shields.io/badge/CSS-blue?style=for-the-badge&logo=css3" />
-  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap" />
-  <img src="https://img.shields.io/badge/Flexbox-ff69b4?style=for-the-badge" />
-</p>
-
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1200&color=00C9A7&center=true&vCenter=true&width=435&lines=Frontend+Development+Roadmap;HTML+%7C+CSS+%7C+Flexbox+%7C+Bootstrap;Practice+and+Learn+Step-by-Step!" alt="Typing SVG" />
+<p align="center" style="font-size: 1.1em; color:#d4d4d4; animation: fadeIn 2s ease-in-out;">
+This repository is created for learning and practicing <b>Frontend Web Development</b> concepts.<br>
+Each topic is organized into its own <b>branch</b>, containing relevant examples, notes, and exercises.
 </p>
 
 ---
 
-## 🧠 About This Repository
+## 🌿 Branch List (Topic-Wise)
 
-This repository is created to **learn and practice Frontend Web Development concepts** in a structured, topic-wise way.  
-Each topic is organized in its **own branch**, containing **examples, exercises, and notes** to master that area.
+1. **main**  
+   → Base branch (no direct code changes). All topic branches are created from here.
+
+2. **intro-to-web-dev**  
+   → Introduction to web development, overview of frontend vs backend, how the web works.
+
+3. **html**  
+   → Covers HTML structure, elements, attributes, tags, and basic page layout.
+
+4. **html-block-&inline-elements**  
+   → Explanation and examples of block-level and inline HTML elements.
+
+5. **html-iframes**  
+   → Working with iframes, embedding external content (videos, maps, etc).
+
+6. **css**  
+   → Introduction to CSS, syntax, selectors, colors, borders, margins, padding, etc.
+
+7. **flex**  
+   → Detailed explanation of CSS Flexbox, alignment, justification, and layout design.
+
+8. **css-model**  
+   → Covers the CSS Box Model (content, padding, border, margin) and visual flow.
+
+9. **css-classes**  
+   → Understanding and using CSS classes and IDs, combining selectors effectively.
+
+10. **responsive-css**  
+    → Techniques for responsive design using media queries and flexible layouts.
+
+11. **bootstrap**  
+    → Introduction to Bootstrap framework, components, grid system, and utilities.
 
 ---
 
-## 🌿 Branches Overview
+<!-- Aesthetic Gradient and Animation -->
+<style>
+@keyframes glow {
+  from { text-shadow: 0 0 5px #00ffe0, 0 0 10px #00ffe0; }
+  to { text-shadow: 0 0 20px #00ffe0, 0 0 30px #00ffe0; }
+}
 
-| 🌱 Branch Name | 📘 Description |
-|----------------|----------------|
-| **main** | 🧭 Base branch. |
-| **intro-to-web-dev** | 🌐 Overview of web development, frontend vs backend, how the web works. |
-| **html** | 🏗️ HTML structure, tags, attributes, and page layout basics. |
-| **html-block-&inline-elements** | 🧩 Examples of block-level vs inline HTML elements. |
-| **html-iframes** | 🪟 Working with iframes, embedding YouTube videos, Google Maps, etc. |
-| **css** | 🎨 CSS syntax, selectors, styling, borders, colors, and spacing. |
-| **flex** | 🧱 CSS Flexbox — mastering layout alignment and distribution. |
-| **css-model** | 📦 CSS Box Model — content, padding, border, margin, and layout flow. |
-| **css-classes** | 🏷️ Working with CSS classes & IDs, combining and reusing styles. |
-| **responsive-css** | 📱 Making websites responsive using media queries and fluid layouts. |
-| **bootstrap** | 💜 Using Bootstrap grid system, components, and utilities. |
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
----
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 1.5s ease-in-out;
+}
 
+a {
+  color: #00ffe0;
+  text-decoration: none;
+  transition: 0.3s;
+}
 
-## 🌈 Visual Learning Path
-
-```mermaid
-graph TD;
-    A[Main Branch 🌿] --> B[Intro to Web Dev 🌐];
-    A --> C[HTML 🏗️];
-    C --> D[Block & Inline 🧩];
-    C --> E[Iframes 🪟];
-    A --> F[CSS 🎨];
-    F --> G[Flexbox 🧱];
-    F --> H[Box Model 📦];
-    F --> I[CSS Classes 🏷️];
-    F --> J[Responsive Design 📱];
-    A --> K[Bootstrap 💜];
-
+a:hover {
+  color: #ff8c00;
+}
+</style>
