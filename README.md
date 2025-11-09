@@ -19,7 +19,7 @@ Each topic is organized into its own **branch**, containing relevant examples, n
 
 | No. | Branch Name | Description |
 |:--:|:--|:--|
-| **1** | `main` | Base branch *(no direct code changes)*. All topic branches are created from here. |
+| **1** | `main` | Base branch |
 | **2** | `intro-to-web-dev` | Introduction to web development, overview of frontend vs backend, how the web works. |
 | **3** | `html` | Covers HTML structure, elements, attributes, tags, and basic page layout. |
 | **4** | `html-block-&inline-elements` | Explanation and examples of block-level and inline HTML elements. |
@@ -64,3 +64,9 @@ Each topic is organized into its own **branch**, containing relevant examples, n
 ---
 
 <h3 align="center">💻 Made with ❤️ by Frontend Enthusiasts</h3>
+
+<h4 align="center">🧭 Guided by — <span style="color:#00ffee;">Mr.Sahil</span> & <span style="color:#00ffee;">Mr.Deepak</span> 💡</h4>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/With%20Guidance%20from-Sahil%20%26%20Deepak-blue?style=for-the-badge" />
+</p>
