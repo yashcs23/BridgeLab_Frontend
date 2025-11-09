@@ -63,11 +63,12 @@ Each topic is organized into its own **branch**, containing relevant examples, n
 
 ---
 
-<h3 align="center">💻 Made with ❤️ by Frontend Enthusiasts</h3>
+<h3 align="center">💻 Made with ❤️</h3>
 
 <h4 align="center">🧭 Guided by — <span style="color:#00ffee;">Mr.Sahil</span> & <span style="color:#00ffee;">Mr.Deepak</span> 💡</h4>
 
 <p align="center">
   <img src="https://img.shields.io/badge/With%20Guidance%20from-Mr.Sahil%20%26%20Mr.Deepak-blue?style=for-the-badge" />
 </p>
+
 
