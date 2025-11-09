@@ -24,7 +24,7 @@ Each topic is organized in its **own branch**, containing **examples, exercises,
 
 | 🌱 Branch Name | 📘 Description |
 |----------------|----------------|
-| **main** | 🧭 Base branch (no direct code changes). All other branches are created from here. |
+| **main** | 🧭 Base branch. |
 | **intro-to-web-dev** | 🌐 Overview of web development, frontend vs backend, how the web works. |
 | **html** | 🏗️ HTML structure, tags, attributes, and page layout basics. |
 | **html-block-&inline-elements** | 🧩 Examples of block-level vs inline HTML elements. |
@@ -38,14 +38,6 @@ Each topic is organized in its **own branch**, containing **examples, exercises,
 
 ---
 
-## 🧾 Repository Guidelines
-
-✅ **Create new branches from `main`**  
-🚫 **Do not merge** topic branches into `main`  
-📝 Each topic branch must contain its own `README.md` with examples and explanations  
-🎯 Keep commits small, clear, and descriptive  
-
----
 
 ## 🌈 Visual Learning Path
 
@@ -61,3 +53,4 @@ graph TD;
     F --> I[CSS Classes 🏷️];
     F --> J[Responsive Design 📱];
     A --> K[Bootstrap 💜];
+
