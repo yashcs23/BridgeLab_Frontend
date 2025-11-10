@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form >
+      <table border="1" cellpadding="9" style="margin-top: 7%; margin-left: 7%">
+        <tr>
+          <td colspan="4" align="center"><b>Registration Form</b></td>
+        </tr>
+        <tr>
+          <td>Student</td>
+          <td><input type="text" placeholder="First Name" required /></td>
+          <td><input type="text" placeholder="Middle Name" required /></td>
+          <td><input type="text" placeholder="Last Name" required /></td>
+        </tr>
+        <tr>
+          <td>Father Name</td>
+          <td><input type="text" placeholder="Father Name" required /></td>
+          <td>Father Name</td>
+          <td><input type="text" placeholder="Mother Name" required /></td>
+        </tr>
+
+        <tr>
+          <td>Date Of Birth</td>
+          <td><input type="date" required /></td>
+          <td>Gender</td>
+          <td>
+            <input type="radio" id="male" name="gender" value="Male" required />
+            <label for="male">Male</label>
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="Female"
+              required
+            />
+            <label for="female">Female</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>City</td>
+          <td>
+            <select required>
+              <option value="">Select City</option>
+              <option value="newyork">New York</option>
+              <option value="losangeles">Los Angeles</option>
+              <option value="chicago">Chicago</option>
+              <option value="houston">Houston</option>
+            </select>
+          </td>
+          <td>Signature</td>
+          <td><input type="file" required /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="3" align="center">
+            <button>
+            <a href="./video.html">Submit</a>
+         </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

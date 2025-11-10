@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Cursor Website</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        cursor: none; /* hide default cursor */
+      }
+
+      body {
+        height: 200vh;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at 20% 20%, #090909, #020202);
+        overflow-x: hidden;
+        color: #fff;
+      }
+
+      /* =============== NAVBAR =============== */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+      }
+
+      .navbar-brand {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 0 10px #00eaff;
+        animation: pulse 3s infinite ease-in-out;
+      }
+
+      @keyframes pulse {
+        0%, 100% { text-shadow: 0 0 10px #00eaff; }
+        50% { text-shadow: 0 0 25px #ff00e6; }
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(90deg, #00eaff, #ff00e6);
+        transition: width 0.4s ease;
+      }
+
+      .nav-links a:hover {
+        color: #00eaff;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Scroll bar animation */
+      #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        width: 0%;
+        background: linear-gradient(90deg, #00eaff, #ff00e6, #00eaff);
+        box-shadow: 0 0 10px #00eaff;
+        transition: width 0.25s ease-out;
+        z-index: 9999;
+      }
+
+      /* ===== HERO SECTION ===== */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        background: radial-gradient(circle at 50% 50%, #0f0f0f, #020202);
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, #00eaff, #ff00e6);
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
+
+      .hero p {
+        color: #ccc;
+        font-size: 1.2rem;
+        margin-top: 15px;
+      }
+
+      .hero button {
+        margin-top: 30px;
+        background: linear-gradient(90deg, #00eaff, #ff00e6);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        color: #fff;
+        font-weight: 600;
+        transition: 0.3s;
+        box-shadow: 0 0 15px #00eaff;
+      }
+
+      .hero button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0 25px #ff00e6;
+      }
+
+      /* ========== CUSTOM CURSOR ========== */
+      .cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00eaff, transparent 60%);
+        pointer-events: none;
+        mix-blend-mode: difference;
+        transform: translate(-50%, -50%);
+        transition: transform 0.05s ease-out;
+        z-index: 20000;
+        box-shadow: 0 0 20px #00eaff;
+        animation: cursorPulse 1.5s infinite ease-in-out;
+      }
+
+      @keyframes cursorPulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.4);
+          opacity: 0.6;
+        }
+      }
+
+      .cursor-trail {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #00eaff, #ff00e6);
+        pointer-events: none;
+        opacity: 0.6;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+      }
+
+      a:hover ~ .cursor,
+      button:hover ~ .cursor {
+        transform: scale(1.8);
+        box-shadow: 0 0 30px #ff00e6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scroll-progress"></div>
+
+    <nav>
+      <div class="navbar-brand">Yash<span style="color:#00eaff;">.Dev</span></div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>Welcome to My World 🌌</h1>
+      <p>Building futuristic experiences with tech & design.</p>
+      <button>Explore Now</button>
+    </section>
+
+    <div class="cursor"></div>
+
+    <script>
+      // Scroll progress indicator
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        document.getElementById("scroll-progress").style.width = scrollPercent + "%";
+      });
+
+      // Custom cursor logic
+      const cursor = document.querySelector(".cursor");
+
+      window.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.pageX + "px";
+        cursor.style.top = e.pageY + "px";
+
+        // Create trail particles
+        const trail = document.createElement("div");
+        trail.classList.add("cursor-trail");
+        document.body.appendChild(trail);
+        trail.style.left = e.pageX + "px";
+        trail.style.top = e.pageY + "px";
+
+        setTimeout(() => {
+          trail.remove();
+        }, 300);
+      });
+    </script>
+  </body>
+</html>

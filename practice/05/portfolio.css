@@ -1,0 +1,27 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.custom-navbar {
+  background-color: rgb(45, 14, 13);
+}
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: white !important;
+}
+.custom-navbar .nav-link:hover {
+  color: #e0d8ff !important;
+}
+.custom-navbar .navbar-toggler {
+  border-color: white;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+.hero {
+  height: 100vh;
+  background-color: rgb(108, 181, 199); 
+}
