@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    background-color: blueviolet;
+}
+.parent{
+    display:flex;
+    gap:5px;
+    width: 80%;
+    padding:10px;
+}
+img{
+    max-width:100%;
+    height:auto;
+}

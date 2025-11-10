@@ -1,0 +1,30 @@
+.container{
+    height: 830px;
+    width: 1000px;
+    background-color: red;
+    margin: 0 auto;
+    border: solid black 10px;
+}
+.box1{
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    border: solid pink 5px;
+    margin:50px auto;
+}
+.box2{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    border: solid pink 5px;
+    margin: 50px auto;
+    box-sizing:border-box;
+}
+.box3{
+    width: 200px;
+    height: 200px;
+    background-color:cyan;
+    border: solid pink 5px;
+    margin: 50px auto;
+
+}

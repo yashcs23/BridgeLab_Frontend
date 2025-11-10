@@ -1,0 +1,38 @@
+.container {
+display: grid;
+grid-template-columns: 200px 200px 200px;
+grid-template-rows: 150px 150px;
+gap: 10px;
+}
+
+.box1{
+border:  solid black;
+text-align:center;
+
+}
+.box2{
+border:  solid black;
+text-align:center;
+ 
+
+}
+.box3{
+border:  solid black;
+text-align:center;
+
+}
+.box4{
+border:  solid black;
+text-align:center;
+
+}   
+.box5{
+border:  solid black; 
+text-align:center;
+
+}
+
+.box6{
+border:  solid black;
+text-align:center;
+}

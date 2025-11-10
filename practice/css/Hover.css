@@ -1,0 +1,54 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.box1{
+    width:200px;
+    height:100px;
+    /* display: grid;
+    grid-template-columns: repeat(1, 1fr); */
+    display: flex;
+    border: 8px solid red;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    font-weight: bold;
+    opacity: 1;
+}
+
+/* .box1::after{
+    content: " Hover Me ";
+    border:2px solide black;
+    position:absolute;
+    bottom:-0.1px;
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+} */
+
+
+
+.box2{
+    width:200px;
+    height:100px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    border: 2px solid white;
+    justify-items: center;
+    align-items: center;
+    margin: 50px;
+    background-color: brown;
+    opacity: 0;
+    bottom:100px;
+    position:absolute;
+    color:white;
+}
+
+.box1:hover + .box2{
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+ 

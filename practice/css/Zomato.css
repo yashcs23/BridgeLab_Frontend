@@ -1,0 +1,64 @@
+.parent { 
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 10px; 
+    box-sizing: border-box;
+    flex-wrap: wrap;
+
+}
+
+.child1 {
+    padding: 20px;
+    color:red;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.child2 {
+    border: 1px solid gray;
+    padding: 20px;
+}
+
+.child3 {
+    padding: 20px;
+}
+
+.child4 {
+    padding: 20px;
+}
+
+.child5 {
+    padding: 20px;
+    color:red;
+    font-weight: bold;
+}
+
+.child6 {
+    padding: 20px;
+}
+
+.child7 {
+    padding: 20px;
+}
+
+.child8 {
+    padding: 20px;
+    text-align: left;
+}
+
+.child9 {
+    padding: 20px;
+    font-size:20px;
+}
+
+.child10 {
+    padding: 20px;
+    color:red;
+}
+.Collections{
+    font-size:20px; 
+}
