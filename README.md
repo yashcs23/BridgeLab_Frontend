@@ -30,6 +30,7 @@ Each topic is organized into its own **branch**, containing relevant examples, n
 | **9** | `css-classes` | Understanding and using CSS classes and IDs, combining selectors effectively. |
 | **10** | `responsive-css` | Techniques for responsive design using media queries and flexible layouts. |
 | **11** | `bootstrap` | Introduction to Bootstrap framework, components, grid system, and utilities. |
+| **12** | `JavaScript` | Introduction to JS , Variables , Operators , Math . |
 
 ---
 
@@ -70,5 +71,6 @@ Each topic is organized into its own **branch**, containing relevant examples, n
 <p align="center">
   <img src="https://img.shields.io/badge/With%20Guidance%20from-Mr.Sahil%20%26%20Mr.Deepak-blue?style=for-the-badge" />
 </p>
+
 
 
