@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 - Special Offer Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .control-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background: #f39c12;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #d68910;
+            transform: translateY(-2px);
+        }
+
+        .banners-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .banner {
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: white;
+            font-weight: 600;
+            transition: all 0.5s ease;
+        }
+
+        .banner-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .banner-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .banner-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .banner-4 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .banner-5 {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #333;
+        }
+
+        .banner-text {
+            font-size: 18px;
+            flex: 1;
+        }
+
+        .banner-btn {
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .banner-5 .banner-btn {
+            color: #333;
+            border-color: #333;
+        }
+
+        .banner-btn:hover {
+            background: white;
+            color: #333;
+            transform: scale(1.05);
+        }
+
+        .banner.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>🎉 Special Offer Banners</h1>
+
+        <article class="control-panel">
+            <h2 style="margin-bottom: 20px; font-size: 18px;">Banner Controls</h2>
+            <div class="button-group">
+                <button class="btn-primary" id="hideBtn">Hide Banners</button>
+                <button class="btn-success" id="showBtn">Show Banners</button>
+                <button class="btn-warning" id="slideUpBtn">Slide Up</button>
+                <button class="btn-warning" id="slideDownBtn">Slide Down</button>
+                <button class="btn-primary" id="fadeInBtn">Fade In</button>
+                <button class="btn-danger" id="fadeOutBtn">Fade Out</button>
+            </div>
+        </article>
+
+        <div class="banners-container" id="bannersContainer">
+            <div class="banner banner-1">
+                <span class="banner-text">🚀 LIMITED TIME: Get 50% OFF on all products!</span>
+                <button class="banner-btn">Shop Now</button>
+            </div>
+
+            <div class="banner banner-2">
+                <span class="banner-text">💝 FREE SHIPPING on orders over $50 today only!</span>
+                <button class="banner-btn">Order Now</button>
+            </div>
+
+            <div class="banner banner-3">
+                <span class="banner-text">⭐ EXCLUSIVE: Early access to new collection for members!</span>
+                <button class="banner-btn">Join Now</button>
+            </div>
+
+            <div class="banner banner-4">
+                <span class="banner-text">🎁 BUY 2 GET 1 FREE on selected items this weekend!</span>
+                <button class="banner-btn">Browse</button>
+            </div>
+
+            <div class="banner banner-5">
+                <span class="banner-text">🔥 FLASH SALE: Up to 70% OFF Electronics - Ends in 3 hours!</span>
+                <button class="banner-btn">Grab Deals</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

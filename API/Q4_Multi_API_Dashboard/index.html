@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 - Multi-API Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-API Dashboard</h1>
+        
+        <div id="warningMessage" class="warning-message" style="display: none;">
+            ⚠️ Some data could not be loaded.
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Users Card -->
+            <div class="dashboard-card">
+                <div class="card-skeleton" id="usersSkeleton">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-number"></div>
+                </div>
+                <div class="card-content" id="usersContent" style="display: none;">
+                    <h2>Total Users</h2>
+                    <div class="stat-number" id="usersCount">0</div>
+                </div>
+            </div>
+
+            <!-- Orders Card -->
+            <div class="dashboard-card">
+                <div class="card-skeleton" id="ordersSkeleton">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-number"></div>
+                </div>
+                <div class="card-content" id="ordersContent" style="display: none;">
+                    <h2>Total Orders</h2>
+                    <div class="stat-number" id="ordersCount">0</div>
+                </div>
+            </div>
+
+            <!-- Products Card -->
+            <div class="dashboard-card">
+                <div class="card-skeleton" id="productsSkeleton">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-number"></div>
+                </div>
+                <div class="card-content" id="productsContent" style="display: none;">
+                    <h2>Total Products</h2>
+                    <div class="stat-number" id="productsCount">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

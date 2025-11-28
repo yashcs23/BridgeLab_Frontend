@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q6 - Event Subscription Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .subscription-panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+
+        .panel-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subscription-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .subscription-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .subscription-item:hover {
+            background: #f0f4ff;
+            transform: translateX(5px);
+        }
+
+        .subscription-item.disabled {
+            opacity: 0.6;
+            border-left-color: #ccc;
+            background: #f5f5f5;
+        }
+
+        .subscription-item.disabled .notification-badge {
+            opacity: 0.5;
+        }
+
+        .subscription-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .notification-badge {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .notification-badge.active {
+            background: #27ae60;
+            transform: scale(1.2);
+        }
+
+        .sub-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+
+        .btn-subscribe {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-subscribe:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        .btn-unsubscribe {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-unsubscribe:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-remove {
+            background: #e74c3c;
+            color: white;
+            padding: 6px 10px;
+            font-size: 11px;
+        }
+
+        .btn-remove:hover {
+            background: #c0392b;
+        }
+
+        .add-topic-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.2);
+        }
+
+        .btn-add {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            padding: 12px;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+            display: none;
+            margin-bottom: 15px;
+            animation: slideDown 0.3s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stats {
+            text-align: center;
+            padding: 15px;
+            background: #f0f4ff;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            display: inline-block;
+            margin: 0 15px;
+            font-weight: 600;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>📨 Event Subscription Panel</h1>
+
+        <article class="subscription-panel">
+            <div class="success-message" id="successMessage"></div>
+
+            <!-- Current Subscriptions -->
+            <section class="panel-section">
+                <h2 class="section-title">🔔 Current Subscriptions</h2>
+                <div class="subscription-list" id="subscriptionList">
+                    <div class="subscription-item" data-subscription="News">
+                        <span class="subscription-name">📰 Weekly Newsletter</span>
+                        <div class="sub-actions">
+                            <span class="notification-badge active">✓</span>
+                            <button class="btn-unsubscribe">Unsubscribe</button>
+                        </div>
+                    </div>
+                    <div class="subscription-item" data-subscription="Updates">
+                        <span class="subscription-name">🔄 Product Updates</span>
+                        <div class="sub-actions">
+                            <span class="notification-badge active">✓</span>
+                            <button class="btn-unsubscribe">Unsubscribe</button>
+                        </div>
+                    </div>
+                    <div class="subscription-item" data-subscription="Events">
+                        <span class="subscription-name">🎉 Event Notifications</span>
+                        <div class="sub-actions">
+                            <span class="notification-badge active">✓</span>
+                            <button class="btn-unsubscribe">Unsubscribe</button>
+                        </div>
+                    </div>
+                    <div class="subscription-item disabled" data-subscription="Promotions">
+                        <span class="subscription-name">🎁 Promotional Offers</span>
+                        <div class="sub-actions">
+                            <span class="notification-badge">✗</span>
+                            <button class="btn-subscribe">Subscribe</button>
+                        </div>
+                    </div>
+                    <div class="subscription-item disabled" data-subscription="Security">
+                        <span class="subscription-name">🔒 Security Alerts</span>
+                        <div class="sub-actions">
+                            <span class="notification-badge">✗</span>
+                            <button class="btn-subscribe">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add New Subscription Topic -->
+            <section class="panel-section">
+                <h2 class="section-title">➕ Add New Topic</h2>
+                <div class="add-topic-form">
+                    <input type="text" id="newTopicInput" placeholder="Enter topic name...">
+                    <button class="btn-add" id="addTopicBtn">Add Topic</button>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="stats">
+                <div class="stat-item">📊 Active: <span id="activeCount">3</span></div>
+                <div class="stat-item">⏸️ Inactive: <span id="inactiveCount">2</span></div>
+                <div class="stat-item">📝 Total: <span id="totalCount">5</span></div>
+            </section>
+        </article>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

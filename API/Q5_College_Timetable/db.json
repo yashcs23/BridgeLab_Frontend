@@ -1,0 +1,78 @@
+{
+  "timetable": [
+    {
+      "day": "Monday",
+      "classes": [
+        {
+          "time": "09:00 AM - 10:30 AM",
+          "subject": "Data Structures",
+          "faculty": "Dr. Smith"
+        },
+        {
+          "time": "10:45 AM - 12:15 PM",
+          "subject": "Web Development",
+          "faculty": "Prof. Johnson"
+        },
+        {
+          "time": "01:00 PM - 02:30 PM",
+          "subject": "Database Design",
+          "faculty": "Dr. Brown"
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "classes": [
+        {
+          "time": "09:00 AM - 10:30 AM",
+          "subject": "Algorithms",
+          "faculty": "Dr. Davis"
+        },
+        {
+          "time": "11:00 AM - 12:30 PM",
+          "subject": "Computer Networks",
+          "faculty": "Prof. Wilson"
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "classes": [
+        {
+          "time": "09:00 AM - 10:30 AM",
+          "subject": "Operating Systems",
+          "faculty": "Dr. Miller"
+        },
+        {
+          "time": "10:45 AM - 12:15 PM",
+          "subject": "Software Engineering",
+          "faculty": "Prof. Taylor"
+        },
+        {
+          "time": "02:00 PM - 03:30 PM",
+          "subject": "Project Lab",
+          "faculty": "Mr. Anderson"
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "classes": [
+        {
+          "time": "09:00 AM - 10:30 AM",
+          "subject": "Machine Learning",
+          "faculty": "Dr. Thomas"
+        },
+        {
+          "time": "11:00 AM - 12:30 PM",
+          "subject": "AI Fundamentals",
+          "faculty": "Prof. Jackson"
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "classes": []
+    }
+  ]
+}

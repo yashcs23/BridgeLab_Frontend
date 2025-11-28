@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5 - College Timetable Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>College Timetable</h1>
+        
+        <div class="controls-section">
+            <label for="daySelect">Select Day:</label>
+            <select id="daySelect" class="day-dropdown">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+            </select>
+        </div>
+
+        <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+            <span class="spinner"></span> Loading timetable...
+        </div>
+
+        <div id="timetableContent" class="timetable-content">
+            <!-- Timetable will be rendered here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

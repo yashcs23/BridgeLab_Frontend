@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q7 - Search Courses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.2);
+        }
+
+        .btn-clear {
+            padding: 12px 24px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-clear:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .search-info {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .search-info span {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-card.hidden {
+            display: none;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        .course-content {
+            padding: 15px;
+        }
+
+        .course-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            word-break: break-word;
+        }
+
+        .course-title .highlight {
+            background: #fff59d;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .course-instructor {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .course-level {
+            display: inline-block;
+            font-size: 11px;
+            padding: 4px 8px;
+            background: #f0f4ff;
+            color: #667eea;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .course-rating {
+            color: #f39c12;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .course-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .no-results-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>🎓 Search Courses</h1>
+
+        <article class="search-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search courses by title or instructor...">
+                <button class="btn-clear" id="clearBtn">Clear</button>
+            </div>
+            <div class="search-info">
+                Showing <span id="matchCount">5</span> of <span id="totalCount">5</span> courses
+            </div>
+        </article>
+
+        <div class="courses-grid" id="coursesContainer">
+            <article class="course-card" data-title="JavaScript Fundamentals" data-instructor="John Smith">
+                <div class="course-image">📱</div>
+                <div class="course-content">
+                    <h2 class="course-title">JavaScript Fundamentals</h2>
+                    <p class="course-instructor">By: John Smith</p>
+                    <span class="course-level">Beginner</span>
+                    <div class="course-rating">⭐⭐⭐⭐⭐ (4.8)</div>
+                    <p class="course-price">$49.99</p>
+                </div>
+            </article>
+
+            <article class="course-card" data-title="Advanced React Patterns" data-instructor="Sarah Johnson">
+                <div class="course-image">⚛️</div>
+                <div class="course-content">
+                    <h2 class="course-title">Advanced React Patterns</h2>
+                    <p class="course-instructor">By: Sarah Johnson</p>
+                    <span class="course-level">Advanced</span>
+                    <div class="course-rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                    <p class="course-price">$79.99</p>
+                </div>
+            </article>
+
+            <article class="course-card" data-title="jQuery Mastery" data-instructor="Mike Brown">
+                <div class="course-image">💻</div>
+                <div class="course-content">
+                    <h2 class="course-title">jQuery Mastery</h2>
+                    <p class="course-instructor">By: Mike Brown</p>
+                    <span class="course-level">Intermediate</span>
+                    <div class="course-rating">⭐⭐⭐⭐ (4.6)</div>
+                    <p class="course-price">$59.99</p>
+                </div>
+            </article>
+
+            <article class="course-card" data-title="CSS Grid & Flexbox" data-instructor="Emily Davis">
+                <div class="course-image">🎨</div>
+                <div class="course-content">
+                    <h2 class="course-title">CSS Grid & Flexbox</h2>
+                    <p class="course-instructor">By: Emily Davis</p>
+                    <span class="course-level">Beginner</span>
+                    <div class="course-rating">⭐⭐⭐⭐ (4.7)</div>
+                    <p class="course-price">$39.99</p>
+                </div>
+            </article>
+
+            <article class="course-card" data-title="Web APIs & DOM" data-instructor="David Wilson">
+                <div class="course-image">🌐</div>
+                <div class="course-content">
+                    <h2 class="course-title">Web APIs & DOM</h2>
+                    <p class="course-instructor">By: David Wilson</p>
+                    <span class="course-level">Intermediate</span>
+                    <div class="course-rating">⭐⭐⭐⭐ (4.5)</div>
+                    <p class="course-price">$54.99</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">🔍</div>
+            <div>No courses found matching your search.</div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

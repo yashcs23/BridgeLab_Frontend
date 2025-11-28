@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5 - Team Members Directory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .control-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .control-panel button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            background: #667eea;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .control-panel button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .department {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .department-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .department-header:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #673a94 100%);
+            padding-left: 30px;
+        }
+
+        .department.highlight .department-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .team-members {
+            padding: 20px;
+        }
+
+        .employee {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .employee:hover {
+            background: #f0f4ff;
+            transform: translateX(10px);
+        }
+
+        .employee.manager {
+            background: #fff9e6;
+            border-left-color: #f39c12;
+            font-weight: 600;
+        }
+
+        .employee.highlighted {
+            background: #fffacd;
+            border-left-color: #ffc107;
+            border-width: 4px;
+        }
+
+        .employee-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .employee-role {
+            color: #667eea;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .employee-contact {
+            color: #666;
+            font-size: 13px;
+            display: none;
+            margin-top: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .employee-contact.show {
+            display: block;
+            animation: slideIn 0.3s ease-in;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 100px;
+            }
+        }
+
+        .expand-collapse-btn {
+            background: #764ba2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .expand-collapse-btn:hover {
+            background: #673a94;
+        }
+
+        .team-members.collapsed {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>👥 Team Members Directory</h1>
+
+        <article class="control-panel">
+            <button id="randomEmployee">Select Random Employee</button>
+        </article>
+
+        <div id="teamsContainer">
+            <!-- Engineering Department -->
+            <section class="department" data-department="engineering">
+                <header class="department-header">🔧 Engineering Department</header>
+                <div class="team-members">
+                    <div class="employee manager" data-manager="true" data-reports="dev1,dev2,dev3">
+                        <div class="employee-name">Alice Johnson</div>
+                        <div class="employee-role">Engineering Manager</div>
+                        <div class="employee-contact">
+                            📧 alice.johnson@company.com<br>
+                            📱 (555) 123-4567
+                        </div>
+                    </div>
+                    <div class="employee" data-id="dev1">
+                        <div class="employee-name">Bob Smith</div>
+                        <div class="employee-role">Senior Developer</div>
+                        <div class="employee-contact">
+                            📧 bob.smith@company.com<br>
+                            📱 (555) 234-5678
+                        </div>
+                    </div>
+                    <div class="employee" data-id="dev2">
+                        <div class="employee-name">Carol Davis</div>
+                        <div class="employee-role">Full Stack Developer</div>
+                        <div class="employee-contact">
+                            📧 carol.davis@company.com<br>
+                            📱 (555) 345-6789
+                        </div>
+                    </div>
+                    <div class="employee" data-id="dev3">
+                        <div class="employee-name">David Wilson</div>
+                        <div class="employee-role">QA Engineer</div>
+                        <div class="employee-contact">
+                            📧 david.wilson@company.com<br>
+                            📱 (555) 456-7890
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Marketing Department -->
+            <section class="department" data-department="marketing">
+                <header class="department-header">📱 Marketing Department</header>
+                <div class="team-members">
+                    <div class="employee manager" data-manager="true" data-reports="mark1,mark2,mark3">
+                        <div class="employee-name">Emma Wilson</div>
+                        <div class="employee-role">Marketing Manager</div>
+                        <div class="employee-contact">
+                            📧 emma.wilson@company.com<br>
+                            📱 (555) 567-8901
+                        </div>
+                    </div>
+                    <div class="employee" data-id="mark1">
+                        <div class="employee-name">Frank Brown</div>
+                        <div class="employee-role">Content Specialist</div>
+                        <div class="employee-contact">
+                            📧 frank.brown@company.com<br>
+                            📱 (555) 678-9012
+                        </div>
+                    </div>
+                    <div class="employee" data-id="mark2">
+                        <div class="employee-name">Grace Lee</div>
+                        <div class="employee-role">Social Media Manager</div>
+                        <div class="employee-contact">
+                            📧 grace.lee@company.com<br>
+                            📱 (555) 789-0123
+                        </div>
+                    </div>
+                    <div class="employee" data-id="mark3">
+                        <div class="employee-name">Henry Martinez</div>
+                        <div class="employee-role">SEO Specialist</div>
+                        <div class="employee-contact">
+                            📧 henry.martinez@company.com<br>
+                            📱 (555) 890-1234
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sales Department -->
+            <section class="department" data-department="sales">
+                <header class="department-header">💼 Sales Department</header>
+                <div class="team-members">
+                    <div class="employee manager" data-manager="true" data-reports="sale1,sale2,sale3">
+                        <div class="employee-name">Iris Taylor</div>
+                        <div class="employee-role">Sales Director</div>
+                        <div class="employee-contact">
+                            📧 iris.taylor@company.com<br>
+                            📱 (555) 901-2345
+                        </div>
+                    </div>
+                    <div class="employee" data-id="sale1">
+                        <div class="employee-name">Jack Anderson</div>
+                        <div class="employee-role">Account Executive</div>
+                        <div class="employee-contact">
+                            📧 jack.anderson@company.com<br>
+                            📱 (555) 012-3456
+                        </div>
+                    </div>
+                    <div class="employee" data-id="sale2">
+                        <div class="employee-name">Kelly White</div>
+                        <div class="employee-role">Sales Representative</div>
+                        <div class="employee-contact">
+                            📧 kelly.white@company.com<br>
+                            📱 (555) 123-4568
+                        </div>
+                    </div>
+                    <div class="employee" data-id="sale3">
+                        <div class="employee-name">Leo Harris</div>
+                        <div class="employee-role">Business Development</div>
+                        <div class="employee-contact">
+                            📧 leo.harris@company.com<br>
+                            📱 (555) 234-5679
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

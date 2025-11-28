@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8 - Dynamic Blog Posts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .admin-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .admin-title {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"],
+        textarea {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: white;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        #postTitle {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        #postContent {
+            width: 100%;
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .btn-add {
+            background: #27ae60;
+        }
+
+        .btn-add:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        .btn-prepend {
+            background: #f39c12;
+        }
+
+        .btn-prepend:hover {
+            background: #d68910;
+            transform: translateY(-2px);
+        }
+
+        .btn-remove-last {
+            background: #e74c3c;
+        }
+
+        .btn-remove-last:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-highlight {
+            background: #3498db;
+        }
+
+        .btn-highlight:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .posts-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .post {
+            background: white;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .post.highlighted {
+            background: #fffacd;
+            border-left-color: #f39c12;
+            box-shadow: 0 4px 16px rgba(243, 156, 18, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .post-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            flex: 1;
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .post-content {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .post-number {
+            font-size: 12px;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-delete:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>✍️ Dynamic Blog Posts Admin</h1>
+
+        <!-- Admin Panel -->
+        <article class="admin-panel">
+            <div class="admin-title">📝 Add New Post</div>
+            <div class="form-group">
+                <input type="text" id="postTitle" placeholder="Post title...">
+                <button class="btn-add" id="addPostBtn">Add Post</button>
+            </div>
+            <div class="form-group">
+                <textarea id="postContent" placeholder="Post content..."></textarea>
+            </div>
+            <div class="button-group">
+                <button class="btn-prepend" id="prependFeaturedBtn">Prepend Featured Post</button>
+                <button class="btn-remove-last" id="removeLastBtn">Remove Last Post</button>
+                <button class="btn-highlight" id="highlightKeywordBtn">Highlight 'jQuery'</button>
+            </div>
+        </article>
+
+        <!-- Blog Posts Container -->
+        <section class="posts-container" id="postsContainer">
+            <article class="post" data-post-id="1">
+                <div class="post-header">
+                    <h2 class="post-title">Getting Started with jQuery</h2>
+                    <span class="post-number">#1</span>
+                </div>
+                <div class="post-meta">Posted on Nov 28, 2024</div>
+                <p class="post-content">Learn the basics of jQuery and how to manipulate the DOM efficiently. jQuery is a powerful library that simplifies JavaScript.</p>
+                <div class="post-tags">
+                    <span class="tag">jQuery</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Web Development</span>
+                </div>
+            </article>
+
+            <article class="post" data-post-id="2">
+                <div class="post-header">
+                    <h2 class="post-title">Advanced jQuery Techniques</h2>
+                    <span class="post-number">#2</span>
+                </div>
+                <div class="post-meta">Posted on Nov 27, 2024</div>
+                <p class="post-content">Explore advanced jQuery patterns and best practices for writing scalable applications. Master event handling and animations.</p>
+                <div class="post-tags">
+                    <span class="tag">jQuery</span>
+                    <span class="tag">Performance</span>
+                    <span class="tag">Best Practices</span>
+                </div>
+            </article>
+
+            <article class="post" data-post-id="3">
+                <div class="post-header">
+                    <h2 class="post-title">jQuery vs Modern JavaScript</h2>
+                    <span class="post-number">#3</span>
+                </div>
+                <div class="post-meta">Posted on Nov 26, 2024</div>
+                <p class="post-content">Compare jQuery with modern JavaScript frameworks. Understand when to use jQuery and when to use alternatives like React or Vue.</p>
+                <div class="post-tags">
+                    <span class="tag">jQuery</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Comparison</span>
+                </div>
+            </article>
+
+            <article class="post" data-post-id="4">
+                <div class="post-header">
+                    <h2 class="post-title">DOM Manipulation with jQuery</h2>
+                    <span class="post-number">#4</span>
+                </div>
+                <div class="post-meta">Posted on Nov 25, 2024</div>
+                <p class="post-content">Master DOM manipulation using jQuery selectors and methods. Learn how to efficiently modify HTML and CSS with jQuery.</p>
+                <div class="post-tags">
+                    <span class="tag">DOM</span>
+                    <span class="tag">jQuery</span>
+                    <span class="tag">Tutorial</span>
+                </div>
+            </article>
+
+            <article class="post" data-post-id="5">
+                <div class="post-header">
+                    <h2 class="post-title">jQuery Events and Animations</h2>
+                    <span class="post-number">#5</span>
+                </div>
+                <div class="post-meta">Posted on Nov 24, 2024</div>
+                <p class="post-content">Create interactive websites with jQuery events and smooth animations. Build engaging user experiences with these powerful tools.</p>
+                <div class="post-tags">
+                    <span class="tag">Animations</span>
+                    <span class="tag">Events</span>
+                    <span class="tag">jQuery</span>
+                </div>
+            </article>
+        </section>
+
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-state-icon">📭</div>
+            <div>No posts yet. Add your first post!</div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

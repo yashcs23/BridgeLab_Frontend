@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3 - Interactive FAQ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .faq-section {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+            user-select: none;
+            color: #333;
+        }
+
+        .faq-question:hover {
+            background: #667eea;
+            color: white;
+            padding-left: 30px;
+        }
+
+        .faq-question.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: all 0.3s ease;
+            background: #f5f5f5;
+        }
+
+        .faq-answer.show {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        .faq-answer-text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .faq-input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.2);
+        }
+
+        button {
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .collapse-all-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 30px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .collapse-all-btn:hover {
+            background: #5d3a7d;
+        }
+
+        .highlight-question {
+            background: #fffacd !important;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>❓ Frequently Asked Questions</h1>
+
+        <button class="collapse-all-btn" id="collapseAll">Collapse All</button>
+
+        <article class="faq-section">
+            <div class="faq-item">
+                <h2 class="faq-question">What is jQuery?</h2>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, and animation much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+                    <div class="faq-input-group">
+                        <input type="text" placeholder="Share your thoughts..." />
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h2 class="faq-question">How do I select elements with jQuery?</h2>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">jQuery uses CSS selectors to select DOM elements. You use the $() function with a selector string. For example: $('#myId'), $('.myClass'), $('div'), or $('[data-value]') for attribute selectors.</p>
+                    <div class="faq-input-group">
+                        <input type="text" placeholder="Share your thoughts..." />
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h2 class="faq-question">What are jQuery methods?</h2>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">jQuery methods are functions that perform operations on DOM elements. Common methods include .css() for styling, .html() for content, .on() for events, .addClass() for classes, and many more that allow you to manipulate and interact with the DOM.</p>
+                    <div class="faq-input-group">
+                        <input type="text" placeholder="Share your thoughts..." />
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h2 class="faq-question">How do I handle events with jQuery?</h2>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">You can handle events using jQuery methods like .on(), .click(), .hover(), .keyup(), etc. For example: $('.button').on('click', function() { /* code */ }). You can also use .off() to remove event handlers and event delegation for dynamically created elements.</p>
+                    <div class="faq-input-group">
+                        <input type="text" placeholder="Share your thoughts..." />
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h2 class="faq-question">Is jQuery still relevant in 2024?</h2>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">While modern JavaScript frameworks like React and Vue are more popular for new projects, jQuery remains relevant for maintaining legacy applications and for projects requiring quick DOM manipulation without a full framework. Many established websites still use jQuery.</p>
+                    <div class="faq-input-group">
+                        <input type="text" placeholder="Share your thoughts..." />
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
